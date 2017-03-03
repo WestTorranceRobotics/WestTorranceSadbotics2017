@@ -9,13 +9,14 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class RobotMap {
 
+	//Gear Holder
 	public static DoubleSolenoid gearHolderHolderSolenoid;
 	public static DoubleSolenoid gearHolderPusherSolenoid;
 	public static DoubleSolenoid gearHolderFunnelFrontSolenoid;
 	public static DoubleSolenoid gearHolderFunnelBackboardSolenoid;
 	public static DigitalInput gearHolderLimitSwitch;
 	
-	
+	//Drive Train
     public static SpeedController drivetrainLeft1;
     public static SpeedController drivetrainLeft2;
     public static SpeedController drivetrainRight1;
@@ -24,6 +25,9 @@ public class RobotMap {
 
     public static void init() {
     	
+    	////////////////////////
+    	//GEAR HOLDER HARDWARE//
+    	////////////////////////
     	gearHolderHolderSolenoid = new DoubleSolenoid(0, 0, 1);
     	LiveWindow.addActuator("Gear Holder", "Holder Solenoid", gearHolderHolderSolenoid);
     	
@@ -38,7 +42,12 @@ public class RobotMap {
     	
     	gearHolderLimitSwitch = new DigitalInput(7);
     	
-        drivetrainLeft1 = new Talon(0);
+    	
+    	////////////////////////
+        //DRIVE TRAIN HARDWARE//
+    	////////////////////////
+    	
+    	drivetrainLeft1 = new Talon(0);
         LiveWindow.addActuator("Drivetrain", "Left 1", (Talon) drivetrainLeft1);
         
         drivetrainLeft2 = new Talon(1);
@@ -52,6 +61,7 @@ public class RobotMap {
         
         drivetrainRobotDrive = new RobotDrive(drivetrainLeft1, drivetrainLeft2,
               drivetrainRight1, drivetrainRight2);
+        
         
         drivetrainRobotDrive.setSafetyEnabled(false);
         drivetrainRobotDrive.setExpiration(0.1);
