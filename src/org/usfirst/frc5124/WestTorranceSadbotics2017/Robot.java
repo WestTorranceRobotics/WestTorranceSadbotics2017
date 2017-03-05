@@ -52,6 +52,12 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
     	SmartDashboard.putNumber("Velocity", Robot.shooters.getCenterVelocity());
         Scheduler.getInstance().run();
+        
+        if(Robot.oi.getDriver().getRawButton(5)) {
+        	Robot.drivetrain.setSpeed(0.85);
+        } else {
+        	Robot.drivetrain.setSpeed(0.5);
+        }
     }
 
     public void testPeriodic() {

@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class OI {
 	
+	public double speed;
+	
 	//Joysticks
 	public static Joystick driver;
 	public static Joystick operator;
@@ -67,6 +69,22 @@ public class OI {
     public Joystick getOperator() {
     	return operator;
     }
-
+    
+    public double getLeftYAxisSens() {
+    	if(Math.abs(driver.getRawAxis(1)) > 0.02) {
+    		return Math.pow(driver.getRawAxis(1), 3);
+    	} else {
+    		return 0;
+    	}
+    }
+    
+    public double getRightXAxisSens() {
+    	if(Math.abs(driver.getRawAxis(2)) > 0.02) {
+    		return Math.pow(driver.getRawAxis(2), 3);
+    	} else {
+    		return 0;
+    	}
+    }
+   
 }
 

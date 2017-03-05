@@ -21,6 +21,11 @@ public class Drivetrain extends Subsystem {
     private final RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
 
     public void initDefaultCommand() {
+    	setDefaultCommand(new JoystickPuppetry());
+    }
+    
+    public void setSpeed(double speed) {
+    	robotDrive.setMaxOutput(speed);
     }
     
     public void driveStop() {

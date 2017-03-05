@@ -16,7 +16,7 @@ public class JoystickPuppetry extends Command {
     }
 
     protected void execute() {
-    	Robot.drivetrain.drive(Robot.oi.getDriver().getRawAxis(1), Robot.oi.getDriver().getRawAxis(5));
+    	Robot.drivetrain.drive(Robot.oi.getDriver().getRawAxis(1), Robot.oi.getDriver().getRawAxis(2));
     }
 
     protected boolean isFinished() {
