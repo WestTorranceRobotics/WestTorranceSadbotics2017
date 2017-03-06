@@ -19,17 +19,18 @@ public class Robot extends IterativeRobot {
    
 
     public void robotInit() {
-    RobotMap.init();
+    	RobotMap.init();
         drivetrain = new Drivetrain();
         gearHolder = new GearHolder();
         shooters = new Shooters();
         
         oi = new OI();
-
+        
+        RobotMap.drivetrainGyro.calibrate();
+        RobotMap.pdp.clearStickyFaults();
     }
 
     public void disabledInit(){
-
     }
 
     public void disabledPeriodic() {
@@ -56,6 +57,8 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         
         Robot.shooters.displayDiagnostics();
+        
+        SmartDashboard.putData("gyro", RobotMap.drivetrainGyro);
         
         if(Robot.oi.getDriver().getRawButton(5)) {
         	Robot.drivetrain.setSpeed(1);

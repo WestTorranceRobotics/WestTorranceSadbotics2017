@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -53,6 +54,9 @@ public class RobotMap {
     public static CANTalon shooterLeftShooterMotor;
     public static CANTalon shooterCenterShooterMotor;
     public static CANTalon shooterRightShooterMotor;
+    
+    //CAN Devices
+    public static PowerDistributionPanel pdp;
 
     public static void init() {
     	
@@ -92,8 +96,6 @@ public class RobotMap {
         
         drivetrainRobotDrive = new RobotDrive(drivetrainLeft1, drivetrainLeft2,
               drivetrainRight1, drivetrainRight2);
-        
-        drivetrainAccelerometer = new ADXL362(Range.k2G);
         
         drivetrainGyro = new ADXRS450_Gyro();
         LiveWindow.addSensor("Gyro", "Gyro", drivetrainGyro);
@@ -147,7 +149,10 @@ public class RobotMap {
         drivetrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
         drivetrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         drivetrainRobotDrive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-
+        
+        //can
+        pdp = new PowerDistributionPanel(1);
+        
 
     }
 }

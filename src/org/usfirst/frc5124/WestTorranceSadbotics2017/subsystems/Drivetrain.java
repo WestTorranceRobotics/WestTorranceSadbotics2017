@@ -18,14 +18,15 @@ public class Drivetrain extends PIDSubsystem {
     private final SpeedController right1 = RobotMap.drivetrainRight1;
     private final SpeedController right2 = RobotMap.drivetrainRight2;
     private final RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
-    private final ADXL362 accelerometer = RobotMap.drivetrainAccelerometer;
     private final ADXRS450_Gyro gyro = RobotMap.drivetrainGyro;
     
     public double direction = 1;
     public double turnSpeed = 0.75;
     
+    public double ticksPerInch = 27143.360527;
+    
     public Drivetrain() {
-    	super(0.2 , 0.02, 0);
+    	super(0.1 , 0, 0);
     	getPIDController().setContinuous(false);
     	getPIDController().setAbsoluteTolerance(1);
     	getPIDController().setOutputRange(-0.7, 0.7);
