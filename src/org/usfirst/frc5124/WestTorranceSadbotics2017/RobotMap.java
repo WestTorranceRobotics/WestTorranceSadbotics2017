@@ -3,14 +3,23 @@ package org.usfirst.frc5124.WestTorranceSadbotics2017;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 
+import edu.wpi.first.wpilibj.ADXL362;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class RobotMap {
+	
+	//PID Values
+	public static double Kp = 0.05;
+	public static double Ki = 0;
+	public static double Kd = 0;
+	public static double Kf = 0.037;
 
 	//Gear Holder
 	public static DoubleSolenoid gearHolderHolderSolenoid;
@@ -25,6 +34,8 @@ public class RobotMap {
     public static SpeedController drivetrainRight1;
     public static SpeedController drivetrainRight2;
     public static RobotDrive drivetrainRobotDrive;
+    public static ADXL362 drivetrainAccelerometer; 
+	public static ADXRS450_Gyro drivetrainGyro;
     
     //Shooters
     public static CANTalon shooterLeftShooterMotor;
@@ -70,6 +81,11 @@ public class RobotMap {
         drivetrainRobotDrive = new RobotDrive(drivetrainLeft1, drivetrainLeft2,
               drivetrainRight1, drivetrainRight2);
         
+        drivetrainAccelerometer = new ADXL362(Range.k2G);
+        
+        drivetrainGyro = new ADXRS450_Gyro();
+        LiveWindow.addSensor("Gyro", "Gyro", drivetrainGyro);
+        
         ////////////////////
         //SHOOTER HARDWARE//
         ////////////////////
@@ -77,10 +93,10 @@ public class RobotMap {
         shooterLeftShooterMotor = new CANTalon(3);
     	shooterLeftShooterMotor.enableBrakeMode(false);
     	shooterLeftShooterMotor.setProfile(0);
-    	shooterLeftShooterMotor.setP(.1);
-    	shooterLeftShooterMotor.setI(0);
-    	shooterLeftShooterMotor.setD(0);
-    	shooterLeftShooterMotor.setF(0.037);
+    	shooterLeftShooterMotor.setP(Kp);
+    	shooterLeftShooterMotor.setI(Ki);
+    	shooterLeftShooterMotor.setD(Kd);
+    	shooterLeftShooterMotor.setF(Kf);
     	shooterLeftShooterMotor.setAllowableClosedLoopErr(50);
     	shooterLeftShooterMotor.setControlMode(0);
     	shooterLeftShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -89,10 +105,10 @@ public class RobotMap {
     	shooterCenterShooterMotor = new CANTalon(4);
     	shooterCenterShooterMotor.enableBrakeMode(false);
     	shooterCenterShooterMotor.setProfile(0);
-    	shooterCenterShooterMotor.setP(.1);
-    	shooterCenterShooterMotor.setI(0);
-    	shooterCenterShooterMotor.setD(0);
-    	shooterCenterShooterMotor.setF(0.037);
+    	shooterCenterShooterMotor.setP(Kp);
+    	shooterCenterShooterMotor.setI(Ki);
+    	shooterCenterShooterMotor.setD(Kd);
+    	shooterCenterShooterMotor.setF(Kf);
     	shooterCenterShooterMotor.setAllowableClosedLoopErr(50);
     	shooterCenterShooterMotor.setControlMode(0);
     	shooterCenterShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -101,10 +117,10 @@ public class RobotMap {
     	shooterRightShooterMotor = new CANTalon(5);
     	shooterRightShooterMotor.enableBrakeMode(false);
     	shooterRightShooterMotor.setProfile(0);
-    	shooterRightShooterMotor.setP(.1);
-    	shooterRightShooterMotor.setI(0);
-    	shooterRightShooterMotor.setD(0);
-    	shooterRightShooterMotor.setF(0.037);
+    	shooterRightShooterMotor.setP(Kp);
+    	shooterRightShooterMotor.setI(Ki);
+    	shooterRightShooterMotor.setD(Kd);
+    	shooterRightShooterMotor.setF(Kf);
     	shooterRightShooterMotor.setAllowableClosedLoopErr(50);
     	shooterRightShooterMotor.setControlMode(0);
     	shooterRightShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);

@@ -5,6 +5,7 @@ import org.usfirst.frc5124.WestTorranceSadbotics2017.RobotMap;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooters extends Subsystem {
 
@@ -82,6 +83,18 @@ public class Shooters extends Subsystem {
 	    
 	    public double getRightCurrent() {
 	    	return shooterRightMotor.getOutputCurrent();
+	    }
+	    
+	    public void displayDiagnostics() {
+	    	SmartDashboard.putNumber("Left Velocity", shooterLeftMotor.getEncVelocity());
+	    	SmartDashboard.putNumber("Left Target", getShootingSpeedLeft());
+	    	SmartDashboard.putNumber("Left Delta", getShootingSpeedLeft() - shooterLeftMotor.getEncVelocity());
+	        SmartDashboard.putNumber("Center Velocity", shooterCenterMotor.getEncVelocity());
+	        SmartDashboard.putNumber("Center Target", getShootingSpeedCenter());
+	        SmartDashboard.putNumber("Center Delta", getShootingSpeedCenter() - shooterCenterMotor.getEncVelocity());
+	        SmartDashboard.putNumber("Right Velocity", shooterRightMotor.getEncVelocity());
+	        SmartDashboard.putNumber("Right Target", getShootingSpeedRight());
+	        SmartDashboard.putNumber("Right Delta", getShootingSpeedRight() - shooterRightMotor.getEncVelocity());
 	    }
 	    
 }

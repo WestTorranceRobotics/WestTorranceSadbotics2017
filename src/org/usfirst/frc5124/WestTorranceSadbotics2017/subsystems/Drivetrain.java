@@ -2,23 +2,35 @@ package org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems;
 
 import org.usfirst.frc5124.WestTorranceSadbotics2017.RobotMap;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.*;
+
+import edu.wpi.first.wpilibj.ADXL362;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
-
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 
 /**
  *
  */
-public class Drivetrain extends Subsystem {
+public class Drivetrain extends PIDSubsystem {
 
     private final SpeedController left1 = RobotMap.drivetrainLeft1;
     private final SpeedController left2 = RobotMap.drivetrainLeft2;
     private final SpeedController right1 = RobotMap.drivetrainRight1;
     private final SpeedController right2 = RobotMap.drivetrainRight2;
     private final RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
+    private final ADXL362 accelerometer = RobotMap.drivetrainAccelerometer;
+    private final ADXRS450_Gyro gyro = RobotMap.drivetrainGyro;
+    
+    public Drivetrain() {
+    	super(0.2 , 0.02, 0);
+    	getPIDController().setContinuous(false);
+    	getPIDController().setAbsoluteTolerance(1);
+    	getPIDController().setOutputRange(-0.7, 0.7);
+    }
 
     public void initDefaultCommand() {
     	setDefaultCommand(new JoystickPuppetry());
@@ -35,6 +47,20 @@ public class Drivetrain extends Subsystem {
     public void drive(double drivePower, double driveTurn) {
     	robotDrive.arcadeDrive(drivePower, driveTurn);
     }
+
+	@Override
+	protected double returnPIDInput() {
+		return gyro.getAngle();
+	}
+
+	@Override
+	protected void usePIDOutput(double output) {
+		robotDrive.arcadeDrive(0, output);
+	}
+	
+	public double getGyro() {
+		return gyro.getAngle();
+	}
     
 }
 
