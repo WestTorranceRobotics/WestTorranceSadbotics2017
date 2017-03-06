@@ -15,12 +15,24 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class RobotMap {
 	
-	//PID Values
-	public static double Kp = 0.05;
-	public static double Ki = 0;
-	public static double Kd = 0;
-	public static double Kf = 0.037;
+	//Left PID Values
+	public static double leftKp = 0.05;
+	public static double leftKi = 0;
+	public static double leftKd = 0;
+	public static double leftKf = 0.0365;
+	
+	//Center PID Values
+	public static double centerKp = 0.04;
+	public static double centerKi = 0;
+	public static double centerKd = 0;
+	public static double centerKf = 0.035;
 
+	//Right PID Values
+	public static double rightKp = 0.05;
+	public static double rightKi = 0;
+	public static double rightKd = 0;
+	public static double rightKf = 0.0375;
+	
 	//Gear Holder
 	public static DoubleSolenoid gearHolderHolderSolenoid;
 	public static DoubleSolenoid gearHolderPusherSolenoid;
@@ -93,10 +105,10 @@ public class RobotMap {
         shooterLeftShooterMotor = new CANTalon(3);
     	shooterLeftShooterMotor.enableBrakeMode(false);
     	shooterLeftShooterMotor.setProfile(0);
-    	shooterLeftShooterMotor.setP(Kp);
-    	shooterLeftShooterMotor.setI(Ki);
-    	shooterLeftShooterMotor.setD(Kd);
-    	shooterLeftShooterMotor.setF(Kf);
+    	shooterLeftShooterMotor.setP(leftKp);
+    	shooterLeftShooterMotor.setI(leftKi);
+    	shooterLeftShooterMotor.setD(leftKd);
+    	shooterLeftShooterMotor.setF(leftKf);
     	shooterLeftShooterMotor.setAllowableClosedLoopErr(50);
     	shooterLeftShooterMotor.setControlMode(0);
     	shooterLeftShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -105,10 +117,10 @@ public class RobotMap {
     	shooterCenterShooterMotor = new CANTalon(4);
     	shooterCenterShooterMotor.enableBrakeMode(false);
     	shooterCenterShooterMotor.setProfile(0);
-    	shooterCenterShooterMotor.setP(Kp);
-    	shooterCenterShooterMotor.setI(Ki);
-    	shooterCenterShooterMotor.setD(Kd);
-    	shooterCenterShooterMotor.setF(Kf);
+    	shooterCenterShooterMotor.setP(centerKp);
+    	shooterCenterShooterMotor.setI(centerKi);
+    	shooterCenterShooterMotor.setD(centerKd);
+    	shooterCenterShooterMotor.setF(centerKf);
     	shooterCenterShooterMotor.setAllowableClosedLoopErr(50);
     	shooterCenterShooterMotor.setControlMode(0);
     	shooterCenterShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -117,10 +129,10 @@ public class RobotMap {
     	shooterRightShooterMotor = new CANTalon(5);
     	shooterRightShooterMotor.enableBrakeMode(false);
     	shooterRightShooterMotor.setProfile(0);
-    	shooterRightShooterMotor.setP(Kp);
-    	shooterRightShooterMotor.setI(Ki);
-    	shooterRightShooterMotor.setD(Kd);
-    	shooterRightShooterMotor.setF(Kf);
+    	shooterRightShooterMotor.setP(rightKp);
+    	shooterRightShooterMotor.setI(rightKi);
+    	shooterRightShooterMotor.setD(rightKd);
+    	shooterRightShooterMotor.setF(rightKf);
     	shooterRightShooterMotor.setAllowableClosedLoopErr(50);
     	shooterRightShooterMotor.setControlMode(0);
     	shooterRightShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);

@@ -13,9 +13,9 @@ public class Shooters extends Subsystem {
 	private final CANTalon shooterCenterMotor = RobotMap.shooterCenterShooterMotor;
 	private final CANTalon shooterRightMotor = RobotMap.shooterRightShooterMotor;
 
-	public static final int shootingSpeedLeft = -15800;
-	public static final int shootingSpeedCenter = -16200;
-	public static final int shootingSpeedRight = -16200;
+	public static final int shootingSpeedLeft = -16200;
+	public static final int shootingSpeedCenter = -16600;
+	public static final int shootingSpeedRight = -16600;
 	 
 
 	 	public void initDefaultCommand() {
