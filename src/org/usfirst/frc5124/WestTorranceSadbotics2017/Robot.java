@@ -47,6 +47,8 @@ public class Robot extends IterativeRobot {
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
         drivetrain.disable();
+        Robot.drivetrain.frontAndCenter();
+        Robot.drivetrain.slowTurn();
     }
 
     public void teleopPeriodic() {
@@ -56,9 +58,11 @@ public class Robot extends IterativeRobot {
         Robot.shooters.displayDiagnostics();
         
         if(Robot.oi.getDriver().getRawButton(5)) {
-        	Robot.drivetrain.setSpeed(0.85);
+        	Robot.drivetrain.setSpeed(1);
+        	Robot.drivetrain.fastTurn();
         } else {
-        	Robot.drivetrain.setSpeed(0.5);
+        	Robot.drivetrain.setSpeed(0.65);
+        	Robot.drivetrain.slowTurn();
         }
     }
 

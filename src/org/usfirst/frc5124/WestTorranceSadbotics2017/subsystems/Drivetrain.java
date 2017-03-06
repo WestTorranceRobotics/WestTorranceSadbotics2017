@@ -11,10 +11,6 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-
-/**
- *
- */
 public class Drivetrain extends PIDSubsystem {
 
     private final SpeedController left1 = RobotMap.drivetrainLeft1;
@@ -24,6 +20,9 @@ public class Drivetrain extends PIDSubsystem {
     private final RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
     private final ADXL362 accelerometer = RobotMap.drivetrainAccelerometer;
     private final ADXRS450_Gyro gyro = RobotMap.drivetrainGyro;
+    
+    public double direction = 1;
+    public double turnSpeed = 0.75;
     
     public Drivetrain() {
     	super(0.2 , 0.02, 0);
@@ -61,6 +60,29 @@ public class Drivetrain extends PIDSubsystem {
 	public double getGyro() {
 		return gyro.getAngle();
 	}
+	
+	public double getDirection() {
+		return direction;
+	}
+	
+	public void reverseFront() {
+		direction = Math.copySign(1, -direction);
+	}
+	
+	public void frontAndCenter() {
+		direction = 1;
+	}
     
+	public void slowTurn() {
+		turnSpeed = 0.75;
+	}
+	
+	public void fastTurn() {
+		turnSpeed = 0.8;
+	}
+	
+	public double getTurnSpeed() {
+		return turnSpeed;
+	}
 }
 

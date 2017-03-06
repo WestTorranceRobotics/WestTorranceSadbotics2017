@@ -17,6 +17,8 @@ public class OI {
     
 	//Joystick Buttons
 	//Driver Buttons
+	public JoystickButton driverButton2;
+	
 //nothin to see here folks//
 	
 	//Operator Buttons
@@ -36,7 +38,10 @@ public class OI {
 		
 		//Joystick Buttons
 		//Driver Buttons
-//LoL//
+		
+		driverButton2 = new JoystickButton(driver, 2);
+		driverButton2.whenPressed(new DrivetrainReverseFront());
+		//LoL//
 		
 		//Operator Buttons
 		operatorButton2 = new JoystickButton(operator, 2);
@@ -59,6 +64,8 @@ public class OI {
 		
 		operatorButton8 = new JoystickButton(operator, 8);
 		operatorButton8.whileHeld(new ShooterTeleopShoot());
+		
+		SmartDashboard.putData("Turn 90", new DrivetrainTurnWithGyro(90));
 		
     }
     
