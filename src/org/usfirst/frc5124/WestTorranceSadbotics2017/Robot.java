@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         if (autonomousCommand != null) autonomousCommand.start();
+        drivetrain.setSpeed(1);
     }
 
     public void autonomousPeriodic() {
@@ -67,6 +68,7 @@ public class Robot extends IterativeRobot {
         	Robot.drivetrain.setSpeed(0.65);
         	Robot.drivetrain.slowTurn();
         }
+        
     }
 
     public void testPeriodic() {

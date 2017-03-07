@@ -26,10 +26,10 @@ public class Drivetrain extends PIDSubsystem {
     public double ticksPerInch = 27143.360527;
     
     public Drivetrain() {
-    	super(0.1 , 0, 0);
+    	super(0.05, 0.000001, 0.11);
     	getPIDController().setContinuous(false);
     	getPIDController().setAbsoluteTolerance(1);
-    	getPIDController().setOutputRange(-0.7, 0.7);
+    	getPIDController().setOutputRange(-0.6, 0.6);
     }
 
     public void initDefaultCommand() {
