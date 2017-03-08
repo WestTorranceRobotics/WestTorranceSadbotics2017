@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.*;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems.*;
 
 public class Robot extends IterativeRobot {
@@ -42,8 +41,9 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
+    	drivetrain.setSpeed(1);
+    	drivetrain.resetAllOutputs();
         if (autonomousCommand != null) autonomousCommand.start();
-        drivetrain.setSpeed(1);
     }
 
     public void autonomousPeriodic() {
@@ -54,6 +54,9 @@ public class Robot extends IterativeRobot {
         if (autonomousCommand != null) autonomousCommand.cancel();
         Robot.drivetrain.frontAndCenter();
         Robot.drivetrain.slowTurn();
+        Robot.gyroPIDHandler.disable();
+        Robot.encoderPIDHandler.disable();
+        Robot.drivetrain.resetAllOutputs();
     }
 
     public void teleopPeriodic() {
