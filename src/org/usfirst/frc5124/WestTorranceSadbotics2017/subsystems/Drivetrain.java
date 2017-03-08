@@ -1,8 +1,9 @@
 package org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems;
 
+import java.awt.Robot;
+
 import org.usfirst.frc5124.WestTorranceSadbotics2017.RobotMap;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.*;
-
 import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -11,25 +12,19 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Drivetrain extends PIDSubsystem {
+public class Drivetrain extends Subsystem {
 
-    private final SpeedController left1 = RobotMap.drivetrainLeft1;
-    private final SpeedController left2 = RobotMap.drivetrainLeft2;
-    private final SpeedController right1 = RobotMap.drivetrainRight1;
-    private final SpeedController right2 = RobotMap.drivetrainRight2;
     private final RobotDrive robotDrive = RobotMap.drivetrainRobotDrive;
-    private final ADXRS450_Gyro gyro = RobotMap.drivetrainGyro;
     
     public double direction = 1;
     public double turnSpeed = 0.75;
     
+    public double gyroOutput = 0;
+    public double encoderOutput = 0;
+    
     public double ticksPerInch = 27143.360527;
     
     public Drivetrain() {
-    	super(0.05, 0.000001, 0.11);
-    	getPIDController().setContinuous(false);
-    	getPIDController().setAbsoluteTolerance(1);
-    	getPIDController().setOutputRange(-0.6, 0.6);
     }
 
     public void initDefaultCommand() {
@@ -47,20 +42,6 @@ public class Drivetrain extends PIDSubsystem {
     public void drive(double drivePower, double driveTurn) {
     	robotDrive.arcadeDrive(drivePower, driveTurn);
     }
-
-	@Override
-	protected double returnPIDInput() {
-		return gyro.getAngle();
-	}
-
-	@Override
-	protected void usePIDOutput(double output) {
-		robotDrive.arcadeDrive(0, output);
-	}
-	
-	public double getGyro() {
-		return gyro.getAngle();
-	}
 	
 	public double getDirection() {
 		return direction;
@@ -85,5 +66,34 @@ public class Drivetrain extends PIDSubsystem {
 	public double getTurnSpeed() {
 		return turnSpeed;
 	}
+	
+	public void getEncoderOutput(double encoderOutput) {
+		this.encoderOutput = encoderOutput;
+	}
+	
+	public void getGyroOutput(double gyroOutput) {
+		this.gyroOutput = gyroOutput;
+	}
+	
+	public void getAllOutputs(double encoderOutput, double gyroOutput) {
+		getEncoderOutput(encoderOutput);
+		getGyroOutput(gyroOutput);
+	}
+	
+	public void resetGyroOutput() {
+		gyroOutput = 0;
+	}
+	
+	public void resetEncoderOutput() {
+		encoderOutput = 0;
+	}
+	
+	public void resetAllOutputs() {
+		resetEncoderOutput();
+		resetGyroOutput();
+	}
+	
+	public void setPIDOutputs() {
+		robotDrive.arcadeDrive(encoderOutput, gyroOutput);
+	}
 }
-

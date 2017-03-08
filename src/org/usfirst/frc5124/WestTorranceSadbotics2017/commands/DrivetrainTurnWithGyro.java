@@ -17,19 +17,21 @@ public class DrivetrainTurnWithGyro extends Command {
     }
 
     protected void initialize() {
-    	Robot.drivetrain.setSetpoint(degrees + Robot.drivetrain.getGyro());
-    	Robot.drivetrain.enable();
+    	Robot.drivetrain.resetAllOutputs();
+    	Robot.gyroPIDHandler.setSetpoint(degrees + Robot.gyroPIDHandler.getGyro());
+    	Robot.gyroPIDHandler.enable();
     }
 
     protected void execute() {
+    	Robot.drivetrain.setPIDOutputs();
     }
 
     protected boolean isFinished() {
-        return Robot.drivetrain.onTarget();
+        return Robot.gyroPIDHandler.onTarget();
     }
 
     protected void end() {
-    	Robot.drivetrain.disable();
+    	Robot.gyroPIDHandler.disable();
     	Robot.drivetrain.driveStop();
     }
 
