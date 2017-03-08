@@ -16,6 +16,8 @@ public class Robot extends IterativeRobot {
     public static Drivetrain drivetrain;
     public static GearHolder gearHolder; 
     public static Shooters shooters; 
+    public static GyroPIDHandler gyroPIDHandler;
+    public static EncoderPIDHandler encoderPIDHandler;
    
 
     public void robotInit() {
@@ -23,6 +25,8 @@ public class Robot extends IterativeRobot {
         drivetrain = new Drivetrain();
         gearHolder = new GearHolder();
         shooters = new Shooters();
+        gyroPIDHandler = new GyroPIDHandler();
+        encoderPIDHandler = new EncoderPIDHandler();
         
         oi = new OI();
         
@@ -48,7 +52,6 @@ public class Robot extends IterativeRobot {
 
     public void teleopInit() {
         if (autonomousCommand != null) autonomousCommand.cancel();
-        drivetrain.disable();
         Robot.drivetrain.frontAndCenter();
         Robot.drivetrain.slowTurn();
     }
