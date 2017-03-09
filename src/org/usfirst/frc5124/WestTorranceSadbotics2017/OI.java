@@ -101,5 +101,21 @@ public class OI {
     	}
     }
    
+    public boolean getAuto1() {
+    	return getOperator().getRawButton(1);
+    }
+    	
+    public boolean getAuto2() {
+    	return getOperator().getRawButton(2);
+    }
+    
+    public boolean getAuto3() {
+    	return getOperator().getRawButton(3);
+    }
+    
+    public boolean getAuto4() {
+    	return getOperator().getRawButton(4);
+    }
+    
 }
 
