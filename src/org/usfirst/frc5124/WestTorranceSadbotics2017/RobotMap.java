@@ -65,10 +65,10 @@ public class RobotMap {
     	////////////////////////
     	//GEAR HOLDER HARDWARE//
     	////////////////////////
-    	gearHolderHolderSolenoid = new DoubleSolenoid(0, 4, 5);
+    	gearHolderHolderSolenoid = new DoubleSolenoid(0, 5, 4);
     	LiveWindow.addActuator("Gear Holder", "Holder Solenoid", gearHolderHolderSolenoid);
     	
-    	gearHolderPusherSolenoid = new DoubleSolenoid(0, 2, 3);
+    	gearHolderPusherSolenoid = new DoubleSolenoid(0, 3, 2);
     	LiveWindow.addActuator("Gear Holder", "Pusher Solenoid", gearHolderPusherSolenoid);
     	
     	gearHolderFunnelFrontSolenoid = new DoubleSolenoid(0, 0, 1);

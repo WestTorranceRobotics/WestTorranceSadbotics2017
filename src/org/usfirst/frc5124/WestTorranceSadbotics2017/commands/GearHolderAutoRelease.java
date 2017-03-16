@@ -16,9 +16,7 @@ public class GearHolderAutoRelease extends CommandGroup {
 	    public GearHolderAutoRelease() {
 	    	
 	        addSequential(new GearHolderSafeOpen());
-	        addSequential(new Wait(1));
-	        addSequential(new GearHolderWaitForClearing());
-	        addSequential(new Wait(2));
+	        addSequential(new Wait(1.125));
 	        addSequential(new GearHolderSafeClose());
 	    }
 	}

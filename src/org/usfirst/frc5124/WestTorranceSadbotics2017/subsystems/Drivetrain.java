@@ -49,11 +49,11 @@ public class Drivetrain extends Subsystem {
 	}
     
 	public void slowTurn() {
-		turnSpeed = 0.75;
+		turnSpeed = 1;
 	}
 	
 	public void fastTurn() {
-		turnSpeed = 0.8;
+		turnSpeed = 1;
 	}
 	
 	public double getTurnSpeed() {
