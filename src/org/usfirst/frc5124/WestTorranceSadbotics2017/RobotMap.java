@@ -5,6 +5,7 @@ import com.ctre.CANTalon.FeedbackDevice;
 
 import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
@@ -49,6 +50,7 @@ public class RobotMap {
     public static RobotDrive drivetrainRobotDrive;
     public static ADXL362 drivetrainAccelerometer; 
 	public static ADXRS450_Gyro drivetrainGyro;
+	public static Compressor compressor;
     
     //Shooters
     public static CANTalon shooterLeftShooterMotor;
@@ -63,13 +65,13 @@ public class RobotMap {
     	////////////////////////
     	//GEAR HOLDER HARDWARE//
     	////////////////////////
-    	gearHolderHolderSolenoid = new DoubleSolenoid(0, 0, 1);
+    	gearHolderHolderSolenoid = new DoubleSolenoid(0, 4, 5);
     	LiveWindow.addActuator("Gear Holder", "Holder Solenoid", gearHolderHolderSolenoid);
     	
     	gearHolderPusherSolenoid = new DoubleSolenoid(0, 2, 3);
     	LiveWindow.addActuator("Gear Holder", "Pusher Solenoid", gearHolderPusherSolenoid);
     	
-    	gearHolderFunnelFrontSolenoid = new DoubleSolenoid(0, 4, 5);
+    	gearHolderFunnelFrontSolenoid = new DoubleSolenoid(0, 0, 1);
     	LiveWindow.addActuator("Gear Holder", "Funnel Front Solenoid", gearHolderFunnelFrontSolenoid);
     	
     	gearHolderFunnelBackboardSolenoid = new DoubleSolenoid(0, 6, 7);
@@ -83,22 +85,22 @@ public class RobotMap {
     	////////////////////////
     	
     	drivetrainLeft1 = new Talon(0);
-        LiveWindow.addActuator("Drivetrain", "Left 1", (Talon) drivetrainLeft1);
+        //LiveWindow.addActuator("Drivetrain", "Left 1", (Talon) drivetrainLeft1);
         
         drivetrainLeft2 = new Talon(1);
-        LiveWindow.addActuator("Drivetrain", "Left 2", (Talon) drivetrainLeft2);
+        //LiveWindow.addActuator("Drivetrain", "Left 2", (Talon) drivetrainLeft2);
         
         drivetrainRight1 = new Talon(2);
-        LiveWindow.addActuator("Drivetrain", "Right 1", (Talon) drivetrainRight1);
+        //LiveWindow.addActuator("Drivetrain", "Right 1", (Talon) drivetrainRight1);
         
         drivetrainRight2 = new Talon(3);
-        LiveWindow.addActuator("Drivetrain", "Right 2", (Talon) drivetrainRight2);
+        //LiveWindow.addActuator("Drivetrain", "Right 2", (Talon) drivetrainRight2);
         
         drivetrainRobotDrive = new RobotDrive(drivetrainLeft1, drivetrainLeft2,
               drivetrainRight1, drivetrainRight2);
         
         drivetrainGyro = new ADXRS450_Gyro();
-        LiveWindow.addSensor("Gyro", "Gyro", drivetrainGyro);
+        //LiveWindow.addSensor("Gyro", "Gyro", drivetrainGyro);
         
         ////////////////////
         //SHOOTER HARDWARE//
@@ -114,7 +116,7 @@ public class RobotMap {
     	shooterLeftShooterMotor.setAllowableClosedLoopErr(50);
     	shooterLeftShooterMotor.setControlMode(0);
     	shooterLeftShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	LiveWindow.addActuator("Shooter", "Left Shooter", shooterLeftShooterMotor);
+    	//LiveWindow.addActuator("Shooter", "Left Shooter", shooterLeftShooterMotor);
     	
     	shooterCenterShooterMotor = new CANTalon(4);
     	shooterCenterShooterMotor.enableBrakeMode(false);
@@ -126,7 +128,7 @@ public class RobotMap {
     	shooterCenterShooterMotor.setAllowableClosedLoopErr(50);
     	shooterCenterShooterMotor.setControlMode(0);
     	shooterCenterShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	LiveWindow.addActuator("Shooter", "Center Shooter", shooterCenterShooterMotor);
+    	//LiveWindow.addActuator("Shooter", "Center Shooter", shooterCenterShooterMotor);
     	
     	shooterRightShooterMotor = new CANTalon(5);
     	shooterRightShooterMotor.enableBrakeMode(false);
@@ -138,7 +140,7 @@ public class RobotMap {
     	shooterRightShooterMotor.setAllowableClosedLoopErr(50);
     	shooterRightShooterMotor.setControlMode(0);
     	shooterRightShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    	LiveWindow.addActuator("Shooter", "Right Shooter", shooterRightShooterMotor);
+    	//LiveWindow.addActuator("Shooter", "Right Shooter", shooterRightShooterMotor);
         
         
         drivetrainRobotDrive.setSafetyEnabled(false);
@@ -152,6 +154,8 @@ public class RobotMap {
         
         //can
         pdp = new PowerDistributionPanel(1);
+        
+        compressor = new Compressor(0);
         
 
     }

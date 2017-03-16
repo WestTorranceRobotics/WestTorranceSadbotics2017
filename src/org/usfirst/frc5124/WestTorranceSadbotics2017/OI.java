@@ -1,8 +1,6 @@
 package org.usfirst.frc5124.WestTorranceSadbotics2017;
 
 import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.*;
-import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.GearHolderFunnelandBackboardBack;
-import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.GearHolderFunnelandBackboardForward;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -31,7 +29,8 @@ public class OI {
 	public JoystickButton operatorButton6;
 	public JoystickButton operatorButton7;
 	public JoystickButton operatorButton8;
-	public JoystickButton operatorButton15;
+	public JoystickButton operatorButton12;
+	public JoystickButton operatorButton14;
 	
 	public OI() {
 
@@ -62,16 +61,15 @@ public class OI {
 		operatorButton6 = new JoystickButton(operator, 6);
 		operatorButton6.whenPressed(new GearHolderSafeOpen());
 		
-		operatorButton7 = new JoystickButton(operator, 7);
-		operatorButton7.whenPressed(new GearHolderSafeClose());
+		operatorButton14 = new JoystickButton(operator, 14);
+		operatorButton14.whenPressed(new GearHolderAutoRelease());
+		
+		operatorButton12 = new JoystickButton(operator, 12);
+		operatorButton12.whileHeld(new GearHolderFunnelFrontForward());
+		operatorButton12.whenReleased(new GearHolderFunnelFrontBack());
 		
 		operatorButton8 = new JoystickButton(operator, 8);
 		operatorButton8.whileHeld(new ShooterTeleopShoot());
-		
-        
-        operatorButton15 = new JoystickButton(operator, 15);
-        operatorButton15.whenPressed(new GearHolderFunnelandBackboardForward());
-        operatorButton15.whenReleased(new GearHolderFunnelandBackboardBack());
 		
 		SmartDashboard.putData("Turn 90", new DrivetrainTurnWithGyro(90));
 		
