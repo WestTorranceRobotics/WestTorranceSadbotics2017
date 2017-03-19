@@ -89,4 +89,9 @@ public class Drivetrain extends Subsystem {
 	public void setPIDOutputs() {
 		robotDrive.arcadeDrive(encoderOutput, gyroOutput);
 	}
+	
+	public void setPIDtrash(double drivePower) {
+		robotDrive.arcadeDrive(drivePower, gyroOutput);
+	}
+	
 }

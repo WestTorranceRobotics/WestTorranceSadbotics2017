@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GearHolderFunnelFrontForward extends Command {
+public class FunnelFrontBack extends Command {
 
-    public GearHolderFunnelFrontForward() {
-    	requires(Robot.gearHolder);
+    public FunnelFrontBack() {
+    	requires(Robot.funnel);
     }
 
     protected void initialize() {
-    	Robot.gearHolder.funnelFrontForward();
+    	Robot.funnel.funnelFrontBack();
     }
 
     protected void execute() {

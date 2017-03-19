@@ -31,6 +31,7 @@ public class OI {
 	public JoystickButton operatorButton8;
 	public JoystickButton operatorButton12;
 	public JoystickButton operatorButton14;
+	public JoystickButton operatorButton15;
 	
 	public OI() {
 
@@ -45,31 +46,25 @@ public class OI {
 		driverButton2.whenPressed(new DrivetrainReverseFront());
 		//LoL//
 		
-		//Operator Buttons
-		operatorButton2 = new JoystickButton(operator, 2);
-		operatorButton2.whenPressed(new GearHolderFunnelBackboardBack());
-		
-		operatorButton3 = new JoystickButton(operator, 3);
-		operatorButton3.whenPressed(new GearHolderFunnelBackboardForward());
-		
-		operatorButton4 = new JoystickButton(operator, 4);
-		operatorButton4.whenPressed(new GearHolderFunnelFrontBack());
-		
-		operatorButton5 = new JoystickButton(operator, 5);
-		operatorButton5.whenPressed(new GearHolderFunnelFrontForward());
-		
+		//Operator Button	
 		operatorButton6 = new JoystickButton(operator, 6);
 		operatorButton6.whenPressed(new GearHolderSafeOpen());
+		
+		operatorButton12 = new JoystickButton(operator, 12);
+		operatorButton12.whileHeld(new FunnelFrontForward());
+		operatorButton12.whenReleased(new FunnelFrontBack());
 		
 		operatorButton14 = new JoystickButton(operator, 14);
 		operatorButton14.whenPressed(new GearHolderAutoRelease());
 		
-		operatorButton12 = new JoystickButton(operator, 12);
-		operatorButton12.whileHeld(new GearHolderFunnelFrontForward());
-		operatorButton12.whenReleased(new GearHolderFunnelFrontBack());
+		operatorButton15 = new JoystickButton(operator, 15);
+		operatorButton15.whileHeld(new FunnelFrontAndBackForward());
+		operatorButton15.whenReleased(new FunnelFrontAndBackBack());
 		
 		operatorButton8 = new JoystickButton(operator, 8);
 		operatorButton8.whileHeld(new ShooterTeleopShoot());
+		
+		
 		
 		SmartDashboard.putData("Turn 90", new DrivetrainTurnWithGyro(90));
 		

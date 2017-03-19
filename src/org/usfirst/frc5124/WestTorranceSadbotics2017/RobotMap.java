@@ -38,9 +38,11 @@ public class RobotMap {
 	//Gear Holder
 	public static DoubleSolenoid gearHolderHolderSolenoid;
 	public static DoubleSolenoid gearHolderPusherSolenoid;
-	public static DoubleSolenoid gearHolderFunnelFrontSolenoid;
-	public static DoubleSolenoid gearHolderFunnelBackboardSolenoid;
 	public static DigitalInput gearHolderLimitSwitch;
+	
+	//Funnel
+	public static DoubleSolenoid funnelFrontSolenoid;
+	public static DoubleSolenoid funnelBackSolenoid;
 	
 	//Drive Train
     public static SpeedController drivetrainLeft1;
@@ -71,14 +73,17 @@ public class RobotMap {
     	gearHolderPusherSolenoid = new DoubleSolenoid(0, 3, 2);
     	LiveWindow.addActuator("Gear Holder", "Pusher Solenoid", gearHolderPusherSolenoid);
     	
-    	gearHolderFunnelFrontSolenoid = new DoubleSolenoid(0, 0, 1);
-    	LiveWindow.addActuator("Gear Holder", "Funnel Front Solenoid", gearHolderFunnelFrontSolenoid);
-    	
-    	gearHolderFunnelBackboardSolenoid = new DoubleSolenoid(0, 6, 7);
-    	LiveWindow.addActuator("Gear Holder", "Funnel Backboard Solenoid", gearHolderFunnelBackboardSolenoid);
-    	
     	gearHolderLimitSwitch = new DigitalInput(7);
     	
+    	////////////////////////
+    	/////FUNNEL HARDWARE////
+    	////////////////////////
+    	
+    	funnelFrontSolenoid = new DoubleSolenoid(0, 0, 1);
+    	LiveWindow.addActuator("Funnel", "Funnel Front Solenoid", funnelFrontSolenoid);
+    	
+    	funnelBackSolenoid = new DoubleSolenoid(0, 6, 7);
+    	LiveWindow.addActuator("Funnel", "Funnel Backboard Solenoid", funnelBackSolenoid);
     	
     	////////////////////////
         //DRIVE TRAIN HARDWARE//

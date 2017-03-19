@@ -5,6 +5,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.AutoBlueHopper;
+import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.AutoLittleShootsBlue;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems.*;
 
 public class Robot extends IterativeRobot {
@@ -14,6 +17,7 @@ public class Robot extends IterativeRobot {
     public static OI oi;
     public static Drivetrain drivetrain;
     public static GearHolder gearHolder; 
+    public static Funnel funnel;
     public static Shooters shooters; 
     public static GyroPIDHandler gyroPIDHandler;
     public static EncoderPIDHandler encoderPIDHandler;
@@ -25,9 +29,12 @@ public class Robot extends IterativeRobot {
     	RobotMap.init();
         drivetrain = new Drivetrain();
         gearHolder = new GearHolder();
+        funnel = new Funnel();
         shooters = new Shooters();
         gyroPIDHandler = new GyroPIDHandler();
         encoderPIDHandler = new EncoderPIDHandler();
+        
+        autonomousCommand = new AutoLittleShootsBlue();
         
         oi = new OI();
         
@@ -36,6 +43,7 @@ public class Robot extends IterativeRobot {
     }
 
     public void disabledInit(){
+    	drivetrain.resetAllOutputs();
     }
 
     public void disabledPeriodic() {
@@ -47,7 +55,7 @@ public class Robot extends IterativeRobot {
     	drivetrain.resetAllOutputs();
         if (autonomousCommand != null) autonomousCommand.start();
         
-        if(oi.getAuto4()) {
+        /* if(oi.getAuto4()) {
 		if(oi.getAuto3() && oi.getAuto1() && oi.getAuto2()) {
 			autonomousCommand = null;
 		} else if(oi.getAuto3() && oi.getAuto1() && !oi.getAuto2()) {
@@ -66,8 +74,8 @@ public class Robot extends IterativeRobot {
 			autonomousCommand = null;
 		}
 	} else {
-		autonomousCommand = null;
-	}
+		autonomousCommand = null; 
+	} */
     }
         
     public void autonomousPeriodic() {
@@ -122,5 +130,6 @@ public class Robot extends IterativeRobot {
 
     public void testPeriodic() {
         LiveWindow.run();
+        drivetrain.setPIDOutputs();
     }
 }

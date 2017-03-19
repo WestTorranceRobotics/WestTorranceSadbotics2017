@@ -1,24 +1,22 @@
 package org.usfirst.frc5124.WestTorranceSadbotics2017.commands;
 
-
 import org.usfirst.frc5124.WestTorranceSadbotics2017.Robot;
-import org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems.GearHolder;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class GearHolderFunnelBackboardForward extends Command {
+public class FunnelBackBack extends Command {
 
-    public GearHolderFunnelBackboardForward() {
-    	requires(Robot.gearHolder);
+    public FunnelBackBack() {
+    	requires(Robot.funnel);
     }
 
     protected void initialize() {
-    	Robot.gearHolder.funnelBackboardForward();
+    	Robot.funnel.funnelBackboardBack();
     }
-
+    
     protected void execute() {
     }
 

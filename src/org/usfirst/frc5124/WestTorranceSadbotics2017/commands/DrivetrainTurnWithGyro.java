@@ -17,6 +17,7 @@ public class DrivetrainTurnWithGyro extends Command {
     }
 
     protected void initialize() {
+    	Robot.gyroPIDHandler.getPIDController().setPID(0.1, 0.125, 0.4);
     	Robot.drivetrain.resetAllOutputs();
     	Robot.gyroPIDHandler.setSetpoint(degrees + Robot.gyroPIDHandler.getGyro());
     	Robot.gyroPIDHandler.enable();
