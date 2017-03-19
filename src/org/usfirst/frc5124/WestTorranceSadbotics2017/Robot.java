@@ -5,8 +5,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.AutoBlueHopper;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.AutoLittleShootsBlue;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems.*;
 

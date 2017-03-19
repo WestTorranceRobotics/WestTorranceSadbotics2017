@@ -2,13 +2,9 @@ package org.usfirst.frc5124.WestTorranceSadbotics2017.commands;
 
 import org.usfirst.frc5124.WestTorranceSadbotics2017.RobotMap;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.Robot;
-import org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems.Shooters;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class ShooterTeleopShoot extends Command {
 
     public ShooterTeleopShoot() {
