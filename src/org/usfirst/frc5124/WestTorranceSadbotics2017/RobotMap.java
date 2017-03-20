@@ -5,7 +5,6 @@ import com.ctre.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -36,7 +35,6 @@ public class RobotMap {
 	//Gear Holder
 	public static DoubleSolenoid gearHolderHolderSolenoid;
 	public static DoubleSolenoid gearHolderForkliftSolenoid;
-	public static DigitalInput gearHolderLimitSwitch;
 	
 	//Funnel
 	public static DoubleSolenoid funnelFrontSolenoid;
@@ -56,6 +54,7 @@ public class RobotMap {
     public static CANTalon shooterLeftShooterMotor;
     public static CANTalon shooterCenterShooterMotor;
     public static CANTalon shooterRightShooterMotor;
+    public static Talon shooterTestCenterShooterMotor;
     
     //CAN Devices
     public static PowerDistributionPanel pdp;
@@ -70,8 +69,6 @@ public class RobotMap {
     	
     	gearHolderForkliftSolenoid = new DoubleSolenoid(0, 3, 2);
     	LiveWindow.addActuator("Gear Holder", "Forklift Solenoid", gearHolderForkliftSolenoid);
-    	
-    	gearHolderLimitSwitch = new DigitalInput(7);
     	
     	////////////////////////
     	/////FUNNEL HARDWARE////
@@ -145,7 +142,8 @@ public class RobotMap {
     	shooterRightShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	//LiveWindow.addActuator("Shooter", "Right Shooter", shooterRightShooterMotor);
         
-        
+    	shooterTestCenterShooterMotor = new Talon(7);
+    	
         drivetrainRobotDrive.setSafetyEnabled(false);
         drivetrainRobotDrive.setExpiration(0.1);
         drivetrainRobotDrive.setSensitivity(0.5);

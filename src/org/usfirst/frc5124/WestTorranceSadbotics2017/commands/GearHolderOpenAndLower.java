@@ -2,11 +2,13 @@ package org.usfirst.frc5124.WestTorranceSadbotics2017.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class GearHolderSafeOpen extends CommandGroup {
+/**
+ *
+ */
+public class GearHolderOpenAndLower extends CommandGroup {
 
-    public GearHolderSafeOpen() {
+    public GearHolderOpenAndLower() {
+    	addSequential(new GearHolderForkliftDown());
     	addSequential(new GearHolderOpenGearHolder());
-    	addSequential(new Wait(.125));
-    	addSequential(new GearHolderPusherOut());    
     }
 }

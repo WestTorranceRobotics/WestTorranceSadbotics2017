@@ -1,33 +1,30 @@
 package org.usfirst.frc5124.WestTorranceSadbotics2017.commands;
 
-
-
 import org.usfirst.frc5124.WestTorranceSadbotics2017.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  *
  */
-public class GearHolderBraceForImpact extends Command {
+public class GearHolderForkliftDown extends Command {
 
-    public GearHolderBraceForImpact() {
+    public GearHolderForkliftDown() {
     	requires(Robot.gearHolder);
     }
 
     protected void initialize() {
+    	Robot.gearHolder.forkliftDown();
     }
 
     protected void execute() {
     }
 
     protected boolean isFinished() {
-        return Robot.gearHolder.getLimitSwitch();
+        return true;
     }
 
     protected void end() {
-    	Scheduler.getInstance().add(new GearHolderAutoRelease());
     }
 
     protected void interrupted() {

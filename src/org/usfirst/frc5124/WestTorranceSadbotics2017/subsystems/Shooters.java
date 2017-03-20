@@ -4,6 +4,7 @@ import org.usfirst.frc5124.WestTorranceSadbotics2017.RobotMap;
 
 import com.ctre.CANTalon;
 
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -12,7 +13,8 @@ public class Shooters extends Subsystem {
 	private final CANTalon shooterLeftMotor = RobotMap.shooterLeftShooterMotor;
 	private final CANTalon shooterCenterMotor = RobotMap.shooterCenterShooterMotor;
 	private final CANTalon shooterRightMotor = RobotMap.shooterRightShooterMotor;
-
+	private final Talon shooterTestCenterMotor = RobotMap.shooterTestCenterShooterMotor;
+	
 	public int shootingSpeedLeft = -16200;
 	public int shootingSpeedCenter = -16600;
 	public int shootingSpeedRight = -16600;
@@ -33,10 +35,15 @@ public class Shooters extends Subsystem {
 	    	shooterRightMotor.set(speed);
 	    }
 	    
+	    public void setTestCenterShooter(double speed) {
+	    	shooterTestCenterMotor.set(speed);
+	    }
+	    
 	    public void setAllShooters(double speed) {
 	    	setLeftShooter(speed);
 	    	setCenterShooter(speed);
 	    	setRightShooter(speed);
+	    	setTestCenterShooter(speed);
 	    }
 	    
 	    public void setControlMode(int mode) {

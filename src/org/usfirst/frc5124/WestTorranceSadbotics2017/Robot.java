@@ -123,6 +123,13 @@ public class Robot extends IterativeRobot {
         	button8IsPressed = false;
         }
         
+        double power = (oi.getOperator2().getRawAxis(3) - 1 ) / 2;
+        if (Math.abs(power) <=.2) {
+            shooters.setTestCenterShooter(0);
+        } else {
+        	shooters.setTestCenterShooter(power);
+        }
+        
         
     }
 
