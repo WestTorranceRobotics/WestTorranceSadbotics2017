@@ -6,8 +6,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GearHolderAutoRelease extends CommandGroup {
 
 	    public GearHolderAutoRelease() {
+	        addSequential(new GearHolderForkliftDown());	        
+	        addSequential(new Wait(.125));
 	        addSequential(new GearHolderOpenGearHolder());
-	        addSequential(new Wait(.25));
-	        addSequential(new GearHolderForkliftDown());
+
 	    }
 	}

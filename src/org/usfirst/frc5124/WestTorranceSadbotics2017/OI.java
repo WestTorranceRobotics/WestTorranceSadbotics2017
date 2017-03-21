@@ -50,19 +50,19 @@ public class OI {
 		driverButton2.whenPressed(new DrivetrainReverseFront());
 		
 		//Operator Button	
-
+		
 		operatorButton11 = new JoystickButton(operator, 11);
-		operatorButton11.whenPressed(new GearHolderAutoRelease());
+		operatorButton11.whenPressed(new GearHolderCloseAndRaise());
 		
 		operatorButton12 = new JoystickButton(operator, 12);
-		operatorButton12.whenPressed(new GearHolderCloseAndRaise());
-		
+		operatorButton12.whenPressed(new GearHolderOpenGearHolder());
+
 		operatorButton13 = new JoystickButton(operator, 13);
-		operatorButton13.whenPressed(new GearHolderForkliftDown());
+		operatorButton13.whenPressed(new GearHolderAutoRelease());
 		
 		operatorButton14 = new JoystickButton(operator, 14);
-		operatorButton14.whenPressed(new GearHolderOpenGearHolder());
-		
+		operatorButton14.whenPressed(new GearHolderForkliftDown());
+			
 		operatorButton15 = new JoystickButton(operator, 15);
 		operatorButton15.whenPressed(new GearHolderCloseGearHolder());
 		
