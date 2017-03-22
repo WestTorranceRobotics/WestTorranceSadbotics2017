@@ -41,7 +41,6 @@ public class OI {
 		//Joysticks
 		driver = new Joystick(0);
 		operator = new Joystick(1);
-		operator2 = new Joystick(2);
 		
 		//Joystick Buttons
 		//Driver Buttons
@@ -50,17 +49,16 @@ public class OI {
 		driverButton2.whenPressed(new DrivetrainReverseFront());
 		
 		//Operator Button	
+		operatorButton6 = new JoystickButton(operator, 6);
+		operatorButton6.whenPressed(new GearHolderCloseAndRaise());
+		operatorButton6.whenReleased(new GearHolderOpenAndLower());
 		
 		operatorButton12 = new JoystickButton(operator, 12);
-        operatorButton12.whenPressed(new GearHolderCloseAndRaise());
+        operatorButton12.whenPressed(new GearHolderCloseGearHolder());
 
 		operatorButton14 = new JoystickButton(operator, 14);
-        operatorButton14.whenPressed(new GearHolderCloseGearHolder());
-        
-        operatorButton15 = new JoystickButton(operator, 15);
-        operatorButton15.whenPressed(new GearHolderOpenAndLower());
+        operatorButton14.whenPressed(new GearHolderCloseAndRaise());
 		
-		//SmartDashboard.putData("Turn 90", new DrivetrainTurnWithGyro(90));
 		
     }
     
