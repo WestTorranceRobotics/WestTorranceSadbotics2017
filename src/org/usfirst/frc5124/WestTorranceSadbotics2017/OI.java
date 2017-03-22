@@ -51,22 +51,16 @@ public class OI {
 		
 		//Operator Button	
 		
-		operatorButton11 = new JoystickButton(operator, 11);
-		operatorButton11.whenPressed(new GearHolderCloseAndRaise());
-		
 		operatorButton12 = new JoystickButton(operator, 12);
-		operatorButton12.whenPressed(new GearHolderOpenGearHolder());
+        operatorButton12.whenPressed(new GearHolderCloseAndRaise());
 
-		operatorButton13 = new JoystickButton(operator, 13);
-		operatorButton13.whenPressed(new GearHolderAutoRelease());
-		
 		operatorButton14 = new JoystickButton(operator, 14);
-		operatorButton14.whenPressed(new GearHolderForkliftDown());
-			
-		operatorButton15 = new JoystickButton(operator, 15);
-		operatorButton15.whenPressed(new GearHolderCloseGearHolder());
+        operatorButton14.whenPressed(new GearHolderCloseGearHolder());
+        
+        operatorButton15 = new JoystickButton(operator, 15);
+        operatorButton15.whenPressed(new GearHolderOpenAndLower());
 		
-		SmartDashboard.putData("Turn 90", new DrivetrainTurnWithGyro(90));
+		//SmartDashboard.putData("Turn 90", new DrivetrainTurnWithGyro(90));
 		
     }
     

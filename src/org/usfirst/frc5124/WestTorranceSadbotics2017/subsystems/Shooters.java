@@ -93,15 +93,15 @@ public class Shooters extends Subsystem {
 	    }
 	    
 	    public void displayDiagnostics() {
-	    	SmartDashboard.putNumber("Left Velocity", shooterLeftMotor.getEncVelocity());
-	    	SmartDashboard.putNumber("Left Target", getShootingSpeedLeft());
-	    	SmartDashboard.putNumber("Left Delta", getShootingSpeedLeft() - shooterLeftMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Center Velocity", shooterCenterMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Center Target", getShootingSpeedCenter());
-	        SmartDashboard.putNumber("Center Delta", getShootingSpeedCenter() - shooterCenterMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Right Velocity", shooterRightMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Right Target", getShootingSpeedRight());
-	        SmartDashboard.putNumber("Right Delta", getShootingSpeedRight() - shooterRightMotor.getEncVelocity());
+	    	//SmartDashboard.putNumber("Left Velocity", shooterLeftMotor.getEncVelocity());
+	    	//SmartDashboard.putNumber("Left Target", getShootingSpeedLeft());
+	    	//SmartDashboard.putNumber("Left Delta", getShootingSpeedLeft() - shooterLeftMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Center Velocity", shooterCenterMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Center Target", getShootingSpeedCenter());
+	        //SmartDashboard.putNumber("Center Delta", getShootingSpeedCenter() - shooterCenterMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Right Velocity", shooterRightMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Right Target", getShootingSpeedRight());
+	        //SmartDashboard.putNumber("Right Delta", getShootingSpeedRight() - shooterRightMotor.getEncVelocity());
 	    }
 	    
 }

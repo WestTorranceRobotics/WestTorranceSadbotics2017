@@ -1,5 +1,6 @@
 package org.usfirst.frc5124.WestTorranceSadbotics2017;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -33,6 +34,8 @@ public class Robot extends IterativeRobot {
         encoderPIDHandler = new EncoderPIDHandler();
         
         autonomousCommand = new AutoLittleShootsBlue();
+        
+        CameraServer.getInstance().startAutomaticCapture();
         
         oi = new OI();
         
@@ -90,12 +93,12 @@ public class Robot extends IterativeRobot {
     }
     
     public void teleopPeriodic() {
-    	SmartDashboard.putNumber("Velocity", Robot.shooters.getCenterVelocity());
+    	//SmartDashboard.putNumber("Velocity", Robot.shooters.getCenterVelocity());
         Scheduler.getInstance().run();
         
-        Robot.shooters.displayDiagnostics();
+       // Robot.shooters.displayDiagnostics();
         
-        SmartDashboard.putData("gyro", RobotMap.drivetrainGyro);
+       // SmartDashboard.putData("gyro", RobotMap.drivetrainGyro);
         
         if(Robot.oi.getDriver().getRawButton(5)) {
         	Robot.drivetrain.setSpeed(1);
