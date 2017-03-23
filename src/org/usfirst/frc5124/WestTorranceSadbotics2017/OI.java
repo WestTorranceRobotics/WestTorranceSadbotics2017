@@ -58,6 +58,10 @@ public class OI {
 
 		operatorButton14 = new JoystickButton(operator, 14);
         operatorButton14.whenPressed(new GearHolderCloseAndRaise());
+        //hang
+        
+        operatorButton15 = new JoystickButton(operator, 15);
+        operatorButton15.whenPressed(new GearHolderOpenGearHolder());
 		
 		
     }
