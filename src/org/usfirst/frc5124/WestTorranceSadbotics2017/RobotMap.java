@@ -2,17 +2,14 @@ package org.usfirst.frc5124.WestTorranceSadbotics2017;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
-
 import edu.wpi.first.wpilibj.ADXL362;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.interfaces.Accelerometer.Range;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class RobotMap {
@@ -37,8 +34,7 @@ public class RobotMap {
 	
 	//Gear Holder
 	public static DoubleSolenoid gearHolderHolderSolenoid;
-	public static DoubleSolenoid gearHolderPusherSolenoid;
-	public static DigitalInput gearHolderLimitSwitch;
+	public static DoubleSolenoid gearHolderForkliftSolenoid;
 	
 	//Funnel
 	public static DoubleSolenoid funnelFrontSolenoid;
@@ -58,6 +54,7 @@ public class RobotMap {
     public static CANTalon shooterLeftShooterMotor;
     public static CANTalon shooterCenterShooterMotor;
     public static CANTalon shooterRightShooterMotor;
+    public static Talon shooterTestCenterShooterMotor;
     
     //CAN Devices
     public static PowerDistributionPanel pdp;
@@ -70,10 +67,8 @@ public class RobotMap {
     	gearHolderHolderSolenoid = new DoubleSolenoid(0, 5, 4);
     	LiveWindow.addActuator("Gear Holder", "Holder Solenoid", gearHolderHolderSolenoid);
     	
-    	gearHolderPusherSolenoid = new DoubleSolenoid(0, 3, 2);
-    	LiveWindow.addActuator("Gear Holder", "Pusher Solenoid", gearHolderPusherSolenoid);
-    	
-    	gearHolderLimitSwitch = new DigitalInput(7);
+    	gearHolderForkliftSolenoid = new DoubleSolenoid(0, 3, 2);
+    	LiveWindow.addActuator("Gear Holder", "Forklift Solenoid", gearHolderForkliftSolenoid);
     	
     	////////////////////////
     	/////FUNNEL HARDWARE////
@@ -147,7 +142,8 @@ public class RobotMap {
     	shooterRightShooterMotor.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     	//LiveWindow.addActuator("Shooter", "Right Shooter", shooterRightShooterMotor);
         
-        
+    	shooterTestCenterShooterMotor = new Talon(7);
+    	
         drivetrainRobotDrive.setSafetyEnabled(false);
         drivetrainRobotDrive.setExpiration(0.1);
         drivetrainRobotDrive.setSensitivity(0.5);

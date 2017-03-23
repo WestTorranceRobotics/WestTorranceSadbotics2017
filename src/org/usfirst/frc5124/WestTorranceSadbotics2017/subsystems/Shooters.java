@@ -4,6 +4,7 @@ import org.usfirst.frc5124.WestTorranceSadbotics2017.RobotMap;
 
 import com.ctre.CANTalon;
 
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -12,7 +13,8 @@ public class Shooters extends Subsystem {
 	private final CANTalon shooterLeftMotor = RobotMap.shooterLeftShooterMotor;
 	private final CANTalon shooterCenterMotor = RobotMap.shooterCenterShooterMotor;
 	private final CANTalon shooterRightMotor = RobotMap.shooterRightShooterMotor;
-
+	private final Talon shooterTestCenterMotor = RobotMap.shooterTestCenterShooterMotor;
+	
 	public int shootingSpeedLeft = -16200;
 	public int shootingSpeedCenter = -16600;
 	public int shootingSpeedRight = -16600;
@@ -33,10 +35,15 @@ public class Shooters extends Subsystem {
 	    	shooterRightMotor.set(speed);
 	    }
 	    
+	    public void setTestCenterShooter(double speed) {
+	    	shooterTestCenterMotor.set(speed);
+	    }
+	    
 	    public void setAllShooters(double speed) {
 	    	setLeftShooter(speed);
 	    	setCenterShooter(speed);
 	    	setRightShooter(speed);
+	    	setTestCenterShooter(speed);
 	    }
 	    
 	    public void setControlMode(int mode) {
@@ -86,15 +93,15 @@ public class Shooters extends Subsystem {
 	    }
 	    
 	    public void displayDiagnostics() {
-	    	SmartDashboard.putNumber("Left Velocity", shooterLeftMotor.getEncVelocity());
-	    	SmartDashboard.putNumber("Left Target", getShootingSpeedLeft());
-	    	SmartDashboard.putNumber("Left Delta", getShootingSpeedLeft() - shooterLeftMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Center Velocity", shooterCenterMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Center Target", getShootingSpeedCenter());
-	        SmartDashboard.putNumber("Center Delta", getShootingSpeedCenter() - shooterCenterMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Right Velocity", shooterRightMotor.getEncVelocity());
-	        SmartDashboard.putNumber("Right Target", getShootingSpeedRight());
-	        SmartDashboard.putNumber("Right Delta", getShootingSpeedRight() - shooterRightMotor.getEncVelocity());
+	    	//SmartDashboard.putNumber("Left Velocity", shooterLeftMotor.getEncVelocity());
+	    	//SmartDashboard.putNumber("Left Target", getShootingSpeedLeft());
+	    	//SmartDashboard.putNumber("Left Delta", getShootingSpeedLeft() - shooterLeftMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Center Velocity", shooterCenterMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Center Target", getShootingSpeedCenter());
+	        //SmartDashboard.putNumber("Center Delta", getShootingSpeedCenter() - shooterCenterMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Right Velocity", shooterRightMotor.getEncVelocity());
+	        //SmartDashboard.putNumber("Right Target", getShootingSpeedRight());
+	        //SmartDashboard.putNumber("Right Delta", getShootingSpeedRight() - shooterRightMotor.getEncVelocity());
 	    }
 	    
 }

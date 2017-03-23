@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GearHolderPusherIn extends Command {
+public class GearHolderForkliftUp extends Command {
 
-    public GearHolderPusherIn() {
-    	requires(Robot.gearHolder);
+    public GearHolderForkliftUp() {
+        requires(Robot.gearHolder);
     }
 
     protected void initialize() {
-    	Robot.gearHolder.pusherIn();
+    	Robot.gearHolder.forkliftUp();
     }
 
     protected void execute() {
