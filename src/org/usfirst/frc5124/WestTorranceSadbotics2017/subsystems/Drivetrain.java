@@ -2,6 +2,8 @@ package org.usfirst.frc5124.WestTorranceSadbotics2017.subsystems;
 
 import org.usfirst.frc5124.WestTorranceSadbotics2017.RobotMap;
 import org.usfirst.frc5124.WestTorranceSadbotics2017.commands.*;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -36,6 +38,10 @@ public class Drivetrain extends Subsystem {
     	robotDrive.arcadeDrive(drivePower, driveTurn);
     }
 	
+    public void tankDrive(Joystick Left, Joystick Right) {
+    	robotDrive.tankDrive(Left, Right);
+    }
+    
 	public double getDirection() {
 		return direction;
 	}
