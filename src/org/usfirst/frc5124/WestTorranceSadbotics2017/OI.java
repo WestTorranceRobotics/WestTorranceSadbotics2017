@@ -15,6 +15,9 @@ public class OI {
 	public static Joystick driver;
 	public static Joystick operator;
 	public static Joystick operator2;
+	public static Joystick leftJoystick;
+	public static Joystick rightJoystick;
+
     
 	//Joystick Buttons
 	
@@ -42,6 +45,9 @@ public class OI {
 		driver = new Joystick(0);
 		operator = new Joystick(1);
 		operator2 = new Joystick(2);
+		leftJoystick = new Joystick(3);
+		rightJoystick = new Joystick(4);
+	
 		
 		//Joystick Buttons
 		//Driver Buttons
@@ -74,6 +80,14 @@ public class OI {
     
     public Joystick getOperator2() {
     	return operator2;
+    }
+    
+    public Joystick getLeftJoystick() {
+    	return leftJoystick;
+    }
+    
+    public Joystick getRightJoystick() {
+    	return rightJoystick;
     }
     
     public double getLeftYAxisSens() {
